@@ -19,8 +19,6 @@ export const stopWebsocketSubscription = () => {
   return { type: actionTypes.STOP_WEBSOCKET_SUBSCRIPTION };
 };
 
-//
-
 export const updateCurrencyListItemPrice = (item, price) => {
   return { type: actionTypes.UPDATE_CURRENCY_LIST_ITEM_PRICE, item, price };
 };

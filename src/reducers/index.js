@@ -5,5 +5,6 @@ import converterReducers from "./converter";
 
 export default combineReducers({
   currencyList: currencyListReducers,
-  converter: converterReducers
+  converter: converterReducers,
+  // availableCurrencies: () => ["BTC", "ETH", "XRP", "LTC", "BCH"]
 });

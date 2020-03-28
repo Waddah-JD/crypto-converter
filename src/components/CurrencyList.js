@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import {
   currencyListIsSubscribedSelector,
   currencyListDataSelector
-} from "../selectors/";
+} from "../selectors/currencyList";
 
 const priceRateDirectionBackgroundColor = direction => {
   switch (direction) {

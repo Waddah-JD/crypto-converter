@@ -6,7 +6,7 @@ import {
   startWebsocketSubscriptionFail,
   stopWebsocketSubscription,
   updateCurrencyListItemPrice
-} from "../actions/startWebsocketSubscription";
+} from "../actions/currencyList";
 
 function websocketInitChannel() {
   return eventChannel(emitter => {
