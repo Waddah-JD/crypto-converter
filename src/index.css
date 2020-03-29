@@ -14,6 +14,8 @@ code {
 
 * {
   text-align: center;
+  background-color: #f7f7f7;
+  color: #292b2c;
 }
 
 .container {
@@ -28,7 +30,17 @@ code {
 .converter-item {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
+
 .converter-item * {
   margin-right: 15px;
+}
+
+.red-bgc {
+  background-color: #d9534f;
+}
+
+.green-bgc {
+  background-color: #5cb85c;
 }

@@ -16,19 +16,15 @@ const CurrencyList = () => {
   );
   const currencyListData = useSelector(currencyListDataSelector);
 
+  const directionColor = i =>
+    priceRateDirectionBackgroundColor(currencyListData[i].rate);
+
   return (
     <div className="main-block">
       <h2>Currency List</h2>
       {currencyListIsSubscribed ? (
         Object.keys(currencyListData).map(i => (
-          <p
-            style={{
-              backgroundColor: priceRateDirectionBackgroundColor(
-                currencyListData[i].rate
-              )
-            }}
-            key={i}
-          >
+          <p className={`${directionColor(i)}-bgc`} key={i}>
             {i}: {currencyListData[i].price}
           </p>
         ))
