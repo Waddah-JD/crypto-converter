@@ -30,15 +30,12 @@ function websocketInitChannel() {
     };
 
     ccStreamer.onerror = error => {
-      console.log("WebSocket error " + error);
-      console.dir(error);
       return emitter(startWebsocketSubscriptionFail(error));
     };
 
     ccStreamer.onmessage = event => {
       if (event.type === "error") {
-        // TODO : what to do?
-        console.log("oooooops", event.error);
+        return emitter(startWebsocketSubscriptionFail(event.error));
       } else {
         const parsedEventData = JSON.parse(event.data);
         if (parsedEventData.TYPE === "0") {
@@ -46,11 +43,6 @@ function websocketInitChannel() {
             updateCurrencyListItemPrice(parsedEventData.FSYM, parsedEventData.P)
           );
         }
-        //  else if (parsedEventData.TYPE === "16") {
-        //   console.log("MESSAGE: ", parsedEventData);
-        // } else {
-        //   console.log("NO IDEA: ", parsedEventData);
-        // }
       }
     };
 

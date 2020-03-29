@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
   currencyListIsSubscribedSelector,
-  currencyListDataSelector
+  currencyListDataSelector,
+  currencyListErrorSelector
 } from "../selectors/currencyList";
 
 import { selectToCurrency } from "../actions/converter";
@@ -23,6 +24,7 @@ const CurrencyList = () => {
   const currencyListIsSubscribed = useSelector(
     currencyListIsSubscribedSelector
   );
+  const currencyListError = useSelector(currencyListErrorSelector);
   const currencyListData = useSelector(currencyListDataSelector);
   const dispatch = useDispatch();
   const selectToCurrencyHandler = currency =>
@@ -34,7 +36,12 @@ const CurrencyList = () => {
   return (
     <div className="main-block">
       <h2>Currency List</h2>
-      {currencyListIsSubscribed ? (
+      {currencyListError ? (
+        <>
+          <p>Ooops!</p>
+          <p>{currencyListError}</p>
+        </>
+      ) : currencyListIsSubscribed ? (
         Object.keys(currencyListData).map(i => (
           <p
             onClick={() => {
