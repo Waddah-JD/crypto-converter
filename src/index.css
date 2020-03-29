@@ -44,3 +44,7 @@ code {
 .green-bgc {
   background-color: #5cb85c;
 }
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}
