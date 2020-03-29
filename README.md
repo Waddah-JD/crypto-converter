@@ -13,3 +13,7 @@ instructions to start app:
 - `npm start`
 
 to run unit tests: `npm test`
+
+There is a live version of the app deployed on `Github Pages`, and can be accessed on :
+`https://waddah-jd.github.io/crypto-converter/`
+NOTE: the Github pages live demo could be buggy in Chrome browsers if some extensions are being used, but should behave normally on Firefox
