@@ -4,9 +4,9 @@ export default (
   state = {
     availableCurrencies: ["BTC", "ETH", "XRP", "LTC", "BCH", "USD", "EUR"],
     fromCurrency: undefined,
-    fromValue: 1,
+    fromValue: 0,
     toCurrency: undefined,
-    toValue: undefined,
+    toValue: 0,
     rate: undefined
   },
   action

@@ -7,15 +7,7 @@ import {
 } from "../selectors/currencyList";
 
 const priceRateDirectionBackgroundColor = direction => {
-  switch (direction) {
-    case "UP":
-      return "green";
-    case "DOWN":
-      return "red";
-    case "SAME":
-    // default:
-    //   return "grey";
-  }
+  return direction === "UP" ? "green" : "red";
 };
 
 const CurrencyList = () => {

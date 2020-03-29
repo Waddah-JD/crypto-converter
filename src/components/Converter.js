@@ -6,7 +6,8 @@ import {
   fromCurrencySelector,
   fromValueSelector,
   toCurrencySelector,
-  toValueSelector
+  toValueSelector,
+  inputFieldsShouldBeDisabledSelector
 } from "../selectors/converter";
 import {
   selectFromCurrency,
@@ -15,12 +16,17 @@ import {
   changeToValue
 } from "../actions/converter";
 
+import ConverterItem from "./ConverterItem";
+
 const Converter = () => {
   const availableCurrencies = useSelector(availableCurrenciesSelector);
   const fromCurrency = useSelector(fromCurrencySelector);
   const fromValue = useSelector(fromValueSelector);
   const toCurrency = useSelector(toCurrencySelector);
   const toValue = useSelector(toValueSelector);
+  const inputFieldsShouldBeDisabled = useSelector(
+    inputFieldsShouldBeDisabledSelector
+  );
   const dispatch = useDispatch();
   const selectFromCurrencyHandler = currency =>
     dispatch(selectFromCurrency(currency));
@@ -33,46 +39,25 @@ const Converter = () => {
     <>
       <p>Converter</p>
       <>
-        <label htmlFor="fromCurrency">choose FROM currency:</label>
-        <select
+        <ConverterItem
+          label="Choose currency to convert FROM"
           id="fromCurrency"
-          onChange={e => selectFromCurrencyHandler(e.target.value)}
-          defaultValue={fromCurrency}
-        >
-          <option key={undefined} value={undefined} />
-          {availableCurrencies &&
-            availableCurrencies.length > 0 &&
-            availableCurrencies.map(currency => (
-              <option key={currency} value={currency}>
-                {currency}
-              </option>
-            ))}
-        </select>
-        <input
-          type="number"
-          defaultValue={fromValue}
-          onChange={e => changeFromValueHandler(Number(e.target.value))}
+          selectedCurrencyChangeHandler={selectFromCurrencyHandler}
+          selectedCurrency={fromCurrency}
+          availableCurrencies={availableCurrencies}
+          currencyValue={fromValue}
+          currencyValueChangeHandler={changeFromValueHandler}
+          inputFieldsShouldBeDisabled={inputFieldsShouldBeDisabled}
         />
-        <br />
-        <label htmlFor="toCurrency">choose TO currency:</label>
-        <select
+        <ConverterItem
+          label="Choose currency to convert TO"
           id="toCurrency"
-          onChange={e => selectToCurrencyHandler(e.target.value)}
-          defaultValue={toCurrency}
-        >
-          <option key={undefined} value={undefined} />
-          {availableCurrencies &&
-            availableCurrencies.length > 0 &&
-            availableCurrencies.map(currency => (
-              <option key={currency} value={currency}>
-                {currency}
-              </option>
-            ))}
-        </select>
-        <input
-          type="number"
-          defaultValue={toValue}
-          onChange={e => changeToValueHandler(Number(e.target.value))}
+          selectedCurrencyChangeHandler={selectToCurrencyHandler}
+          selectedCurrency={toCurrency}
+          availableCurrencies={availableCurrencies}
+          currencyValue={toValue}
+          currencyValueChangeHandler={changeToValueHandler}
+          inputFieldsShouldBeDisabled={inputFieldsShouldBeDisabled}
         />
       </>
     </>

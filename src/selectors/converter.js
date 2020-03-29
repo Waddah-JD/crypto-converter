@@ -14,7 +14,9 @@ export const fromCurrencySelector = createSelector(
 
 export const fromValueSelector = createSelector(
   converterSelector,
-  converter => converter.fromValue
+  converter =>
+    // converter => (Math.round(converter.fromValue * 100) / 100).toFixed(5)
+    converter.fromValue
 );
 
 export const toCurrencySelector = createSelector(
@@ -25,4 +27,14 @@ export const toCurrencySelector = createSelector(
 export const toValueSelector = createSelector(
   converterSelector,
   converter => converter.toValue
+);
+
+export const inputFieldsShouldBeDisabledSelector = createSelector(
+  [fromCurrencySelector, toCurrencySelector],
+  (fromCurrency, toCurrency) => {
+    if (fromCurrency && toCurrency) {
+      return false;
+    }
+    return true;
+  }
 );
