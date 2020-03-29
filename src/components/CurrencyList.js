@@ -9,7 +9,14 @@ import {
 import { selectToCurrency } from "../actions/converter";
 
 const priceRateDirectionBackgroundColor = direction => {
-  return direction === "UP" ? "green" : "red";
+  switch (direction) {
+    case "UP":
+      return "green";
+    case "DOWN":
+      return "red";
+    default:
+      return "grey";
+  }
 };
 
 const CurrencyList = () => {

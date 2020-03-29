@@ -15,12 +15,12 @@ export default (
       const prevPrice = (state.data[action.item] || {}).price;
       const price = action.price;
       const rate =
-        price !== prevPrice
+        prevPrice &&
+        (price !== prevPrice
           ? price > prevPrice
             ? "UP"
             : "DOWN"
-          : (state.data[action.item] || {}).rate;
-      // const rate = price > prevPrice ? "UP" : "DOWN";
+          : (state.data[action.item] || {}).rate);
       return {
         ...state,
         data: {
