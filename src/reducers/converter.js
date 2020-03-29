@@ -1,5 +1,7 @@
 import actionTypes from "../actions/actionTypes";
 
+const zeroExchangeRateErr = new Error("Exchange rate can't be equal to 0");
+
 export default (
   state = {
     availableCurrencies: ["BTC", "ETH", "XRP", "LTC", "BCH", "USD", "EUR"],
@@ -13,6 +15,7 @@ export default (
 ) => {
   switch (action.type) {
     case actionTypes.REQUEST_EXCHANGE_RATE_SUCCESS:
+      if (action.rate === 0) throw zeroExchangeRateErr;
       return {
         ...state,
         rate: action.rate,
@@ -29,6 +32,7 @@ export default (
     case actionTypes.SELECT_TO_CURRENCY:
       return { ...state, toCurrency: action.currency };
     case actionTypes.CHANGE_TO_VALUE:
+      if (state.rate === 0) throw zeroExchangeRateErr;
       return {
         ...state,
         toValue: action.value,
