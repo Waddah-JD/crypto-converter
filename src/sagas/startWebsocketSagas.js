@@ -10,15 +10,12 @@ import {
 
 function websocketInitChannel() {
   return eventChannel(emitter => {
-    const API_KEY =
-      "c33196888f1a1f1e2f3668397885329ae68567f895ea19f36a6a13335af5c41d"; // TODO move this to .env file
-
-    var ccStreamer = new WebSocket(
-      `wss://streamer.cryptocompare.com/v2?api_key=${API_KEY}`
+    const ccStreamer = new WebSocket(
+      `wss://streamer.cryptocompare.com/v2?api_key=${process.env.REACT_APP_CRYPTOCOMPAREAPI_KEY}`
     );
 
     ccStreamer.onopen = () => {
-      var subRequest = {
+      const subRequest = {
         action: "SubAdd",
         subs: [
           "0~Coinbase~BTC~USD",
@@ -58,7 +55,6 @@ function websocketInitChannel() {
     };
 
     ccStreamer.onclose = () => {
-      // conosle.log("CLOSED!");
       return emitter(stopWebsocketSubscription());
     };
 
