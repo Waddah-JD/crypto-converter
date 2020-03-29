@@ -10,7 +10,7 @@ const ConverterItem = ({
   currencyValueChangeHandler,
   inputFieldsShouldBeDisabled
 }) => (
-  <div>
+  <div className="converter-item">
     <label htmlFor={id}>{label}</label>
     <select
       id={id}

@@ -17,22 +17,25 @@ const CurrencyList = () => {
   const currencyListData = useSelector(currencyListDataSelector);
 
   return (
-    <>
-      <p>Currency List</p>
-      {Object.keys(currencyListData).map(i => (
-        <p
-          style={{
-            backgroundColor: priceRateDirectionBackgroundColor(
-              currencyListData[i].rate
-            )
-          }}
-          key={i}
-        >
-          {i}: {currencyListData[i].price}
-        </p>
-      ))}
-      <p>Loading: {currencyListIsSubscribed ? "yes" : "no"}</p>
-    </>
+    <div className="main-block">
+      <h2>Currency List</h2>
+      {currencyListIsSubscribed ? (
+        Object.keys(currencyListData).map(i => (
+          <p
+            style={{
+              backgroundColor: priceRateDirectionBackgroundColor(
+                currencyListData[i].rate
+              )
+            }}
+            key={i}
+          >
+            {i}: {currencyListData[i].price}
+          </p>
+        ))
+      ) : (
+        <p>loading ... </p>
+      )}
+    </div>
   );
 };
 

@@ -36,8 +36,8 @@ const Converter = () => {
   const changeToValueHandler = value => dispatch(changeToValue(value));
 
   return (
-    <>
-      <p>Converter</p>
+    <div className="main-block">
+      <h2>Converter</h2>
       <>
         <ConverterItem
           label="Choose currency to convert FROM"
@@ -60,7 +60,7 @@ const Converter = () => {
           inputFieldsShouldBeDisabled={inputFieldsShouldBeDisabled}
         />
       </>
-    </>
+    </div>
   );
 };
 
