@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/crypto-converter/static/css/main.1483c20d.chunk.css",
+    "main.js": "/crypto-converter/static/js/main.26831979.chunk.js",
+    "main.js.map": "/crypto-converter/static/js/main.26831979.chunk.js.map",
+    "runtime-main.js": "/crypto-converter/static/js/runtime-main.68d89627.js",
+    "runtime-main.js.map": "/crypto-converter/static/js/runtime-main.68d89627.js.map",
+    "static/js/2.5ffa8a03.chunk.js": "/crypto-converter/static/js/2.5ffa8a03.chunk.js",
+    "static/js/2.5ffa8a03.chunk.js.map": "/crypto-converter/static/js/2.5ffa8a03.chunk.js.map",
+    "index.html": "/crypto-converter/index.html",
+    "precache-manifest.6fcbdf2edaac8b4263f34e086f46e0cf.js": "/crypto-converter/precache-manifest.6fcbdf2edaac8b4263f34e086f46e0cf.js",
+    "service-worker.js": "/crypto-converter/service-worker.js",
+    "static/css/main.1483c20d.chunk.css.map": "/crypto-converter/static/css/main.1483c20d.chunk.css.map",
+    "static/js/2.5ffa8a03.chunk.js.LICENSE.txt": "/crypto-converter/static/js/2.5ffa8a03.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.68d89627.js",
+    "static/js/2.5ffa8a03.chunk.js",
+    "static/css/main.1483c20d.chunk.css",
+    "static/js/main.26831979.chunk.js"
+  ]
+}
